@@ -51,7 +51,7 @@ sudo docker image prune -f
 
 # Pull the FocusFlow container
 echo "Pulling FocusFlow container..."
-sudo docker pull mubaraklouis/dreampayroll:0.0.0
+sudo docker pull mubaraklouis/dreampayroll:0.0.1
 
 # Ask user if they want to run in debug mode
 echo ""
@@ -65,7 +65,7 @@ if [ "$debug_mode" = "y" ]; then
     -p 8000:8000 \
     -e "PORT=8000" \
     -e "DEBUG=true" \
-    -it mubaraklouis/dreampayroll:0.0.0 /bin/sh
+    -it mubaraklouis/dreampayroll:0.0.1 /bin/sh
 else
   # Run with standard configuration but with more environment variables
   echo "Running FocusFlow container with standard configuration..."
@@ -75,7 +75,7 @@ else
     -e "NODE_ENV=production" \
     -e "DEBUG=true" \
     --restart unless-stopped \
-    -d mubaraklouis/dreampayroll:0.0.0
+    -d mubaraklouis/dreampayroll:0.0.1
 
   # Check if container is running
   echo "Checking container status..."
@@ -99,7 +99,7 @@ echo "Docker installation and container deployment completed!"
 echo ""
 echo "Troubleshooting tips if container keeps restarting:"
 echo "1. Check logs for specific error messages: sudo docker logs focusflow-app"
-echo "2. Try running with interactive shell: sudo docker run -it --rm mubaraklouis/dreampayroll:0.0.0 /bin/sh"
+echo "2. Try running with interactive shell: sudo docker run -it --rm mubaraklouis/dreampayroll:0.0.1 /bin/sh"
 echo "3. Check if required environment variables are set"
 echo "4. Verify the container's entrypoint script is executable"
 echo ""
